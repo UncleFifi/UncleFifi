@@ -1,0 +1,15 @@
+#nav-header {
+    div {
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        font-size: 20px;
+        background-color: rgba(0,0,0,0);
+        transition: 1s background-color ease-in-out;
+        &.active {
+            color: $darkest-color;
+            background-color: #30303030;
+        }
+    }
+}
