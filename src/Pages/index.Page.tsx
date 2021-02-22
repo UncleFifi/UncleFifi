@@ -71,42 +71,42 @@ export const HomePage:FC = ({}) => {
 
 
     return <div id="scrollElement" ref={scrollElement} className="col flexed stretched" style={{position:"relative", overflow: 'auto'}}>
-            <div className="background full-dim stretched slightBlur" id="particles-js" style={{position:"absolute"}}></div>
+            <div className="background full-dim stretched" id="particles-js" style={{position:"absolute"}}></div>
             <div className="full-dim">
 
                 <div ref={part1} id="intro" className="flexed flex-center col title full-dim">
                     <div className="contact-wrapper">
                         <h1 className="centered-text">Felipe Ferreira</h1>
-                        <h2>Write something here about me</h2>
-                        <div onClick={() => scrollTo(Page.experience)}>Scroll down to Bottom...</div>
+                        <h2>Adding Fun Typography effect here</h2>
                     </div>
                 </div>
 
-                <div ref={part2} id="contact" className="flexed flex-center col title full-dim">
+
+                <div ref={part2} id="experience" className="flexed flex-center col title full-dim">
                     <div className="contact-wrapper">
-                        <h1 className="centered-text">Contact Me</h1>
+                        <h1 className="centered-text">Experience</h1>
+                        <div className="skills-section">
+                            {expericeTech.map(tech => <div className="centered-text" key={tech}>{tech}</div>)}
+                        </div>
+                        {/* <a href={DownloadDocument} download>Download Doge</a> */}
+                    </div>
+                </div>
+
+                <div ref={part3} id="contact" className="flexed flex-center col title full-dim">
+                    <div className="contact-wrapper">
+                        <h1 className="centered-text">Let me know youre interested</h1>
                         <div className="fields">
                             <div className="field-wrap flexed">
                                 <input className="stretched" type="text" placeholder="name" />
-                            </div>
-                            <div className="field-wrap flexed">
+
                                 <input className="stretched" type="text" placeholder="email" />
                             </div>
                             <div className="field-wrap flexed">
-                                <textarea placeholder="Write your message here" className="stretched"></textarea>
+                                <textarea placeholder="Write your message here" cols={2} className="stretched"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div ref={part3} id="experience" className="flexed flex-center col title full-dim">
-                    <div className="contact-wrapper">
-                        <h1 className="centered-text">Experience</h1>
-                        {expericeTech.map(tech => <div className="centered-text" key={tech}>{tech}</div>)}
-                        <a href={DownloadDocument} download>Download Doge</a>
-                    </div>
-                </div>
-
 
             </div>
     </div>

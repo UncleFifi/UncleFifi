@@ -95,8 +95,8 @@ export const Navigation:FC = ({ children }) => {
         <div id="with-Nav" className="col flexed full-dim">
         <div className="dark-bottom-border white-bg flexed" id="nav-header">
             <div ref={introRef} className={linkClassName} id="intro-link" onClick={() => onClick(Page.intro)}>About</div>
-            <div ref={contactRef} className={linkClassName} id="contact-link" onClick={() => onClick(Page.contact)}>Contact</div>
             <div ref={experienceRef} className={linkClassName} id="experience-link" onClick={() => onClick(Page.experience)}>Experience</div>
+            <div ref={contactRef} className={linkClassName} id="contact-link" onClick={() => onClick(Page.contact)}>Contact</div>
         </div>{children}</div>
     </ScrollSpyBehavior>
 }

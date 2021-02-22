@@ -106,11 +106,19 @@ html, body, #root, .full-dim {
 
 /* CONTACT FORM */
 .contact-wrapper {
-    width:750px;
-    padding: 60px 35px 35px 35px;
+    width:600px;
+    padding: 20px;
+
+    /*
     border-radius: 40px;
     background: #ecf0f3;
     box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+    */
+
+    border-radius: 50px;
+    background: #f8f8ff;
+    box-shadow:  20px 20px 60px #d3d3d9,
+                 -20px -20px 60px #ffffff;
     
     .fields input, .fields textarea {
         border: none;
@@ -124,7 +132,7 @@ html, body, #root, .full-dim {
         background: transparent;
         outline: none;
         border: none;
-        height: 200px;
+        height: 70px;
         padding: 20px 10px 20px 20px;
     }
     .field-wrap {
@@ -140,4 +148,4 @@ html, body, #root, .full-dim {
 
 
 /*Needs to be declared here due to level of importance!*/
-@import './darkMode.scss';
+// @import './darkMode.scss';

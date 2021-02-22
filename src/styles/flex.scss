@@ -24,3 +24,12 @@
         justify-content: flex-end;
     }
 }
+
+.skills-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &> div {
+        flex: 0 50%;
+    }
+}
