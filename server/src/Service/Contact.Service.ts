@@ -18,7 +18,5 @@ export class ContactService implements IContactService {
             }
             resolve(response)
         })
-
-
     }
 }
