@@ -6,6 +6,6 @@ RUN yarn
 COPY . .
 RUN yarn build
 # ENVIRONMENT VARIABLES
-ENV PORT=3000
-ENV IS_DOCKER=true
+# ENV PORT=3000
+# ENV IS_DOCKER=true
 CMD ["yarn", "start"]
