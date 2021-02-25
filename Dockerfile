@@ -2,7 +2,7 @@ FROM node:10-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN yarn install 
-RUN node ./node_modules/webpack-cli/bin/cli.js  \
+RUN node ./node_modules/webpack-cli/bin/cli.js
 # NGINX Script Section
 FROM nginx:alpine
 EXPOSE 80
