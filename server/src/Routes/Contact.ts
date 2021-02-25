@@ -3,9 +3,7 @@ import ExpressLib from 'express'
 import { IContactService, ContactService } from './../Service/Contact.Service'
 
 class ContactRoute extends RouteBase {
-
     private _contactService: IContactService
-
     constructor(details: Array<string>) {
         super("contact")
         this._contactService = new ContactService()

@@ -1,4 +1,5 @@
 import ExpressLib, { Express } from 'express'
+import ContactRoute from './Routes/Contact'
 
 // Keep it in this file!
 const _ExpressApp: Express = ExpressLib();
@@ -27,8 +28,13 @@ function SetApplicationMiddleware(App: Express):Express
         next();
     })
 
+    const allDetails = new Array<string>()
+    new ContactRoute(allDetails).bindRoute(App)
+
     App.get('/', (req, res) => {
-        res.status(200).send({testing: "this is working", data: ['Felipe', 'Rebecca', 'Arya Ann']})
+        res
+            .status(200)
+            .send(allDetails)
     })
 
     return App
@@ -43,6 +49,6 @@ export function startExpressServer(Port: number, next: Function)
 {
     SetApplicationMiddleware(_ExpressApp).listen(Port, () => { 
         console.log( `server is now running on PORT:${ Port }`)
-        next()
+        // next()
     })
 }
