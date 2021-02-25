@@ -14,7 +14,7 @@ export class ContactService implements IContactService {
             response = {
                 isGood: true,
                 message: "Hello world",
-                errors: new Array<string>()
+                errors: new Array<string>('none')
             }
             resolve(response)
         })
