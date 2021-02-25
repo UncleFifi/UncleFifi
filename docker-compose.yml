@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo"
+    ports:
+    - 27018:27017
+    volumes: 
+      - data:/data/db
+    container_name: database
+  server:
+    build: ./server
+    container_name: server
+    ports:
+    - 5000:5000
+  client:
+    build: .
+    container_name: client
+    ports:
+    - 80:80
+volumes:
+  data:
