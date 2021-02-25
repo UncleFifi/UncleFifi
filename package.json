@@ -7,7 +7,8 @@
     "typescript:build": "tsc",
     "dev:build": "webpack --mode development",
     "prod:build": "webpack --mode development",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "start:test": "webpack serve --mode development --env SERVER_HOST=testing123"
   },
   "repository": {
     "type": "git",

@@ -15,15 +15,20 @@ const centeredStyle: React.CSSProperties = {
   alignItems: "center",
 };
 
-export const App: FC = () => (
-  <Router>
-    {/* <ModalManager/> */}
-    <Switch>
-      <Route exact path="/">
-        <Navigation>
-          <HomePage />
-        </Navigation>
-      </Route>
-    </Switch>
-  </Router>
-);
+export const App: FC = () => {
+
+  console.log(process.env.SERVER_HOST)
+
+  return (
+    <Router>
+      {/* <ModalManager/> */}
+      <Switch>
+        <Route exact path="/">
+          <Navigation>
+            <HomePage />
+          </Navigation>
+        </Route>
+      </Switch>
+    </Router>
+  )
+}
