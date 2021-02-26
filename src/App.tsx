@@ -5,10 +5,7 @@ import { Navigation } from "./Components/Navigation";
 
 // Page Imports
 import { HomePage } from './Pages/index.Page'
-// import { Count } from "./Pages/Count/Count.Page";
-// import { Login } from "./Pages/Login/Login.Page";
-// import { Modals } from './Pages/Modals/Modals.Page'
-// import { ModalManager } from './Components/Modal/Modal.Manager'
+import { Amortization } from './Pages/Amortization.Page'
 
 const centeredStyle: React.CSSProperties = {
   justifyContent: "center",
@@ -17,16 +14,16 @@ const centeredStyle: React.CSSProperties = {
 
 export const App: FC = () => {
 
-  console.log(process.env.SERVER_HOST)
-
   return (
     <Router>
-      {/* <ModalManager/> */}
       <Switch>
         <Route exact path="/">
           <Navigation>
             <HomePage />
           </Navigation>
+        </Route>
+        <Route exact path="/Amortization">
+          <Amortization/>
         </Route>
       </Switch>
     </Router>

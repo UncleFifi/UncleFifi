@@ -69,21 +69,24 @@ export const HomePage:FC = ({}) => {
         })
     }
 
+    const wrapClassName = "flexed flex-vertical-center col title full-dim row"
+    const cardClassName = "col contact-wrapper l6 offset-l3 offset-s0 s12" 
+
 
     return <div id="scrollElement" ref={scrollElement} className="col flexed stretched" style={{position:"relative", overflow: 'auto'}}>
             <div className="background full-dim stretched" id="particles-js" style={{position:"absolute"}}></div>
             <div className="full-dim">
 
-                <div ref={part1} id="intro" className="flexed flex-center col title full-dim">
-                    <div className="contact-wrapper">
-                        <h1 className="centered-text">Felipe Ferreira</h1>
-                        <h2>Adding Fun Typography effect here</h2>
+                <div ref={part1} id="intro" className={wrapClassName}>
+                    <div className={cardClassName}>
+                        <h1 className="center">Felipe Ferreira</h1>
+                        <p className="center">Adding Fun Typography effect here</p>
                     </div>
                 </div>
 
 
-                <div ref={part2} id="experience" className="flexed flex-center col title full-dim">
-                    <div className="contact-wrapper">
+                <div ref={part2} id="experience" className={wrapClassName}>
+                    <div className={cardClassName}>
                         <h1 className="centered-text">Experience</h1>
                         <div className="skills-section">
                             {expericeTech.map(tech => <div className="centered-text" key={tech}>{tech}</div>)}
@@ -92,8 +95,8 @@ export const HomePage:FC = ({}) => {
                     </div>
                 </div>
 
-                <div ref={part3} id="contact" className="flexed flex-center col title full-dim">
-                    <div className="contact-wrapper">
+                <div ref={part3} id="contact" className={wrapClassName}>
+                    <div className={cardClassName}>
                         <h1 className="centered-text">Let me know youre interested</h1>
                         <div className="fields">
                             <div className="field-wrap flexed">
@@ -104,6 +107,9 @@ export const HomePage:FC = ({}) => {
                             <div className="field-wrap flexed">
                                 <textarea placeholder="Write your message here" cols={2} className="stretched"></textarea>
                             </div>
+
+                            <a className="waves-effect waves-light btn"><i className="material-icons right">cloud</i>button</a>
+
                         </div>
                     </div>
                 </div>
