@@ -97,7 +97,7 @@ export const HomePage:FC = ({}) => {
 
                 <div ref={part3} id="contact" className={wrapClassName}>
                     <div className={cardClassName}>
-                        <h1 className="centered-text">Let me know youre interested</h1>
+                        <h1 className="centered-text">Contact</h1>
                         <div className="fields">
                             <div className="field-wrap flexed">
                                 <input className="stretched" type="text" placeholder="name" />
@@ -108,7 +108,9 @@ export const HomePage:FC = ({}) => {
                                 <textarea placeholder="Write your message here" cols={2} className="stretched"></textarea>
                             </div>
 
-                            <a className="waves-effect waves-light btn"><i className="material-icons right">cloud</i>button</a>
+                            <div className="flexed justify-content-end">
+                                <a className="waves-effect waves-light btn primary mr-30 mb-30"><i className="material-icons right">cloud</i>button</a>
+                            </div>
 
                         </div>
                     </div>
