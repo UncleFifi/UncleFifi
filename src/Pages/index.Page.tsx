@@ -113,6 +113,11 @@ export const HomePage:FC = ({}) => {
                                 Amortization
                             </Link>
                         </h2>
+                        <h2 className="center">
+                            <Link to="/EMR">
+                                EMR
+                            </Link>
+                        </h2>
                     </div>
                 </div>
 
