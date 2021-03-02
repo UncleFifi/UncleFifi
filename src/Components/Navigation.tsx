@@ -5,6 +5,7 @@ interface PageNodes {
     intro?: HTMLElement,
     contact?: HTMLElement,
     experience?: HTMLElement,
+    work?: HTMLElement,
     isDefined: boolean
 }
 
@@ -17,7 +18,8 @@ export interface IScrollSpyLink {
 export enum Page {
     intro = 1,
     contact = 2,
-    experience = 3
+    experience = 3,
+    work = 4
 }
 
 
@@ -26,6 +28,7 @@ export const Navigation:FC = ({ children }) => {
     const introRef = createRef<HTMLDivElement>()
     const contactRef = createRef<HTMLDivElement>()
     const experienceRef = createRef<HTMLDivElement>()
+    const workRef = createRef<HTMLDivElement>()
 
 
 
@@ -54,6 +57,10 @@ export const Navigation:FC = ({ children }) => {
             {
                 link: experienceRef.current,
                 page: document.getElementById('experience')
+            },
+            {
+                link: workRef.current,
+                page: document.getElementById('work')
             }
         ])
 
@@ -64,6 +71,7 @@ export const Navigation:FC = ({ children }) => {
         Dom.intro = document.getElementById('intro')
         Dom.contact = document.getElementById('contact')
         Dom.experience = document.getElementById('experience')
+        Dom.work = document.getElementById('work')
     }
 
 
@@ -79,7 +87,10 @@ export const Navigation:FC = ({ children }) => {
                 break;
             case Page.experience:
                 element = Dom.experience as HTMLDivElement
-                break;        
+                break;
+            case Page.work:
+                element = Dom.work as HTMLDivElement
+                break;
         }
         element.scrollIntoView({
             behavior: "smooth",
@@ -97,6 +108,7 @@ export const Navigation:FC = ({ children }) => {
             <div ref={introRef} className={linkClassName} id="intro-link" onClick={() => onClick(Page.intro)}>About</div>
             <div ref={experienceRef} className={linkClassName} id="experience-link" onClick={() => onClick(Page.experience)}>Experience</div>
             <div ref={contactRef} className={linkClassName} id="contact-link" onClick={() => onClick(Page.contact)}>Contact</div>
+            <div ref={workRef} className={linkClassName} id="work-link" onClick={() => onClick(Page.work)}>Work</div>
         </div>{children}</div>
     </ScrollSpyBehavior>
 }

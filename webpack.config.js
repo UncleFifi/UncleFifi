@@ -6,6 +6,10 @@ module.exports = env => {
 
     const SERVER_HOST = env.SERVER_HOST || "http://localhost:5000"
 
+    console.log('SERVER_HOST')
+    console.log(SERVER_HOST)
+    console.log('SERVER_HOST')
+
     const webConfiguration = {
         entry: {
             prototypes: path.resolve(__dirname, 'src', 'Util', 'prototypes.ts'),

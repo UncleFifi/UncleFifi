@@ -1,7 +1,9 @@
 import React, { FC, useEffect, createRef } from 'react'
 import { config } from './../Assets/particleJs.config'
-import { Page } from './../Components/Navigation'
-import DownloadDocument from './../Assets/Doge.png'
+import { Link } from "react-router-dom"
+import FormActions from './../services/FormAction'
+// import { Page } from './../Components/Navigation'
+// import DownloadDocument from './../Assets/Doge.png'
 
 export const HomePage:FC = ({}) => {
 
@@ -25,6 +27,7 @@ export const HomePage:FC = ({}) => {
     const part2 = createRef<HTMLDivElement>()
     const part3 = createRef<HTMLDivElement>()
 
+    /*
     const getConfig = () => {
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
         const color = isDarkMode ? "#ffffff" : "#000000"
@@ -33,41 +36,28 @@ export const HomePage:FC = ({}) => {
         return config
     }
 
-
     const changeFunction = () => {
-        window.particlesJS("particles-js", getConfig())
+        window.particlesJS("particles-js", config)
     }
+    */
 
     useEffect(function onLoad() {
-        window.particlesJS("particles-js", getConfig())
+            window.particlesJS("particles-js", config)
+            FormActions.test().then((API_RESPONSE) => {
+                console.log(API_RESPONSE.data)
+            })
+    }
+        /*
         const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)')
         prefersColorScheme.addEventListener('change', changeFunction)
             return () => {
                 prefersColorScheme.removeEventListener('change', changeFunction)
             }
-        },
+        }
+        */
+        ,
     [])
 
-
-    const scrollTo = (page: Page):void => {
-        let element: HTMLDivElement
-        switch (page) {
-            case Page.intro:
-                element = part1.current
-                break;
-            case Page.contact:
-                element = part2.current
-                break;
-            case Page.experience:
-                element = part3.current            
-                break;        
-        }
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest"
-        })
-    }
 
     const wrapClassName = "flexed flex-vertical-center col title full-dim row"
     const cardClassName = "col contact-wrapper l6 offset-l3 offset-s0 s12" 
@@ -113,6 +103,16 @@ export const HomePage:FC = ({}) => {
                             </div>
 
                         </div>
+                    </div>
+                </div>
+
+                <div ref={part2} id="work" className={wrapClassName}>
+                    <div className={cardClassName}>
+                        <h2 className="center">
+                            <Link to="/Amortization">
+                                Amortization
+                            </Link>
+                        </h2>
                     </div>
                 </div>
 
