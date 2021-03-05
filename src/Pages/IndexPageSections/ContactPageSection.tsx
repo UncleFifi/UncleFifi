@@ -2,6 +2,12 @@ import React, { FC } from 'react'
 
 export const ContactSection: FC = () => {
 
+    const submitForm = (e: React.MouseEvent) => 
+    {
+        e.preventDefault()
+        alert('WIP - Need to make this work')
+    }
+
     const renderForm = () => <div className="row">
         <form className="col s12">
             <div className="row">
@@ -28,7 +34,10 @@ export const ContactSection: FC = () => {
                 </div>
             </div>
 
-            <a className="waves-effect waves-light btn indigo darken-3">Send</a>
+            {/*<a className="waves-effect waves-light btn indigo darken-3">Send</a>*/}
+            <button onClick={submitForm} className="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i className="material-icons right">send</i>
+            </button>
 
         </form>
     </div>
