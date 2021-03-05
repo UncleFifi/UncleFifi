@@ -47,6 +47,15 @@ html, body, #root {
 .row {
     margin: 0;
 }
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+}
 
+#About > div {
+    background: #0D1821;
+}
 @import './flex.scss';
 @import './scrollBar.scss';
