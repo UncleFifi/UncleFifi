@@ -127,8 +127,10 @@ export const AboutMeSection: FC = () => {
         <div className="col m6 offset-m3 s12">
             <div className="card">
                 <div className="card-content white-text">
-                    <span className="card-title">About Me</span>
-                    <p>Section will be a descriptive part of me.</p>
+                    <p className="flow-text">Results-oriented web developer with a problem-solving mindset and experience in developing features for large global applications. </p>
+                    <p className="flow-text">Extensive experience in both front and back end tech stacks, as well as working on cross-functional teams. </p>
+                    <p className="flow-text">Adept at creating clear and concise code both independently and on a team. </p>
+                    <p className="flow-text">Strong communication and ability to learn quickly.</p>
                 </div>
             </div>
         </div>
