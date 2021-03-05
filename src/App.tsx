@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom"
-import badRoute from "./Assets/Doge.png"
-import { Navigation } from "./Components/Navigation";
 
 // Page Imports
 import { HomePage } from './Pages/index.Page'
@@ -19,9 +17,7 @@ export const App: FC = () => {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Navigation>
             <HomePage />
-          </Navigation>
         </Route>
         <Route exact path="/Amortization">
           <Amortization/>

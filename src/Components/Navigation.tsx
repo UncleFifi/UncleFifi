@@ -1,114 +1,59 @@
-import React, { FC, useEffect, useState, createRef } from 'react'
-import { ScrollSpyBehavior } from './ScrollSpy'
+import React, { FC, useEffect } from 'react'
+import M, { ISideNavInstance } from 'materialize-css'
 
-interface PageNodes {
-    intro?: HTMLElement,
-    contact?: HTMLElement,
-    experience?: HTMLElement,
-    work?: HTMLElement,
-    isDefined: boolean
-}
 
-export interface IScrollSpyLink {
-    link: HTMLElement
-    page: HTMLElement
+interface INavigationProps {
+    onNavClick(selection: string):void
+    sections: Array<string>
 }
 
 
-export enum Page {
-    intro = 1,
-    contact = 2,
-    experience = 3,
-    work = 4
-}
+export const Navigation: FC<INavigationProps> = ({children, onNavClick, sections}) => {
 
+    let NavigationObject: ISideNavInstance
 
-export const Navigation:FC = ({ children }) => {
-
-    const introRef = createRef<HTMLDivElement>()
-    const contactRef = createRef<HTMLDivElement>()
-    const experienceRef = createRef<HTMLDivElement>()
-    const workRef = createRef<HTMLDivElement>()
-
-
-
-    // We will be able to access the Dom Nodes with this property... 
-    // will hold the reference to the HTMLNode...
-    const Dom:PageNodes = {
-        isDefined: false
-    }
-
-    // STATE
-    const [scrollZone, setScrollZone] = useState<HTMLElement>()
-    const [scrollAreas, setScrollAreas] = useState<Array<IScrollSpyLink>>([])
-
-    // once component Mounts we are able to define the following states...
     useEffect(() => {
-        setScrollZone(document.getElementById('scrollElement'))
-        setScrollAreas([
-            {
-                link: introRef.current,
-                page: document.getElementById('intro')
-            },
-            {
-                link: contactRef.current,
-                page: document.getElementById('contact')
-            },
-            {
-                link: experienceRef.current,
-                page: document.getElementById('experience')
-            },
-            {
-                link: workRef.current,
-                page: document.getElementById('work')
-            }
-        ])
-
-    }, [])
-
-    const getNodes = () => {
-        Dom.isDefined = true,
-        Dom.intro = document.getElementById('intro')
-        Dom.contact = document.getElementById('contact')
-        Dom.experience = document.getElementById('experience')
-        Dom.work = document.getElementById('work')
-    }
-
-
-    const onClick = (page: Page) => {
-        let element: HTMLDivElement
-        if(Dom.isDefined === false) getNodes()
-        switch (page) {
-            case Page.intro:
-                element = Dom.intro as HTMLDivElement
-                break;
-            case Page.contact:
-                element = Dom.contact as HTMLDivElement
-                break;
-            case Page.experience:
-                element = Dom.experience as HTMLDivElement
-                break;
-            case Page.work:
-                element = Dom.work as HTMLDivElement
-                break;
+        const elems: NodeListOf<Element> = document.querySelectorAll('.sidenav')
+        const options = {}
+        NavigationObject = M.Sidenav.init(elems, options)[0]
+        return () => {
+            NavigationObject.destroy()
         }
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest"
-        })
+    }, 
+    [])
+
+    const navigationAction = (section: string) => {
+        NavigationObject.close()
+        onNavClick(section)
     }
 
-    const linkClassName = 'pad-15'
+    const getNavigationLinks = (prefix: string, isTransparent=false) => {
+        let className = "waves-effect waves-light btn"
+        if(isTransparent) className+=" transparent"
+        else className+=" indigo darken-3"
+        return sections.map((section) => <li key={prefix+"-"+section} onClick={()=> navigationAction(section)}>
+            <a className={className}>{section}</a>
+        </li>)
 
+    }
 
-    return <ScrollSpyBehavior scrollZone={scrollZone} scrollAreas={scrollAreas}>
-        <div id="with-Nav" className="col flexed full-dim">
-        <div className="dark-bottom-border white-bg flexed" id="nav-header">
-            <div ref={introRef} className={linkClassName} id="intro-link" onClick={() => onClick(Page.intro)}>About</div>
-            <div ref={experienceRef} className={linkClassName} id="experience-link" onClick={() => onClick(Page.experience)}>Experience</div>
-            <div ref={contactRef} className={linkClassName} id="contact-link" onClick={() => onClick(Page.contact)}>Contact</div>
-            <div ref={workRef} className={linkClassName} id="work-link" onClick={() => onClick(Page.work)}>Work</div>
-        </div>{children}</div>
-    </ScrollSpyBehavior>
+    return <div className="page">
+        <div className="navigation">
+            <nav>
+                <div className="nav-wrapper">
+                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                    <ul className="right hide-on-med-and-down">
+                        {getNavigationLinks("main", true)}
+                    </ul>
+                </div>
+            </nav>
+
+            <ul className="sidenav" id="mobile-demo">
+                {getNavigationLinks("mobile")}
+            </ul>            
+        </div>
+        <div className="page-content">
+            {children}
+        </div>
+    </div>
 }

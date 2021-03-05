@@ -1,163 +1,52 @@
-@import './fonts.scss';
 @import './colors.scss';
-@import './flex.scss';
-@import './padding.scss';
-@import './navigation.scss';
-@import './scrollbar.scss';
 
 * {
-    box-sizing: content-box;
-    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
 }
 
-html, body, #root, .full-dim {
+.fullHeight {
+    height: 100%;
+}
+.fullWidth {
+    width: 100%;
+}
+.fullDim {
+    @extend .fullHeight, .fullWidth;
+}
+html, body, #root {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-}
-.full-dim-vh {
-    height: 100vh;
-}
-
-
-.full-width {
-    width: 100%;
-}
-.half-width {
-    width: 50%;
-}
-
-#root {
-    background-color: $white;
     overflow: hidden;
 }
-
-.slightBlur {
-    filter: blur(1px);
-}
-
-.centered-text {
-    text-align: center;
-}
-
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-  }
-
-.absolute-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.dark-right-border {
-    border-right: 1px solid $darkest-color;
-}
-.dark-bottom-border {
-    border-bottom: 1px solid $darkest-color;
-}
-
-
-.no-margin {
-    margin: 0;
-}
-
-
-.rounded-edges {
-    border-radius: 7px;
-}
-
-.spaced-text {
-    letter-spacing: 10px;
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-.text-15 {
-    font-size: 15px;
-}
-
-.not-allowed-cursor {
-    cursor: not-allowed;
-}
-
-.default-cursor {
-    cursor: auto;
+.page {
+    height: 100%;
+    .page-content {
+        height: calc(100% - 64px);
+        overflow: auto;
+    }
 }
 
 .clickable {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-/* CONTACT FORM */
-.contact-wrapper {
-    width:600px;
-    padding: 20px;
-
-    /*
-    border-radius: 40px;
-    background: #ecf0f3;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
-    */
-
-    border-radius: 50px;
-    background: #f8f8ff;
-    box-shadow:  20px 20px 60px #d3d3d9,
-                 -20px -20px 60px #ffffff;
-    
-    .fields input, .fields textarea {
-        border: none;
-        outline: none;
-        background: none;
-        font-size: 18px;
-        color: #555;
-        padding: 6px 25px;
-        margin: 0;
-    }
-    textarea {
-        background: transparent;
-        outline: none;
-        border: none;
-        height: 70px;
-    }
-    .field-wrap {
-        margin-bottom: 30px;
-        border-radius: 25px;
-        box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
-    }
-    .fields svg {
-        height: 22px;
-        margin:0 10px -3px 25px;
+.nav-wrapper {
+    background-color: $nav;
+    ul > li {
+        padding: 0 20px;
+        @extend .clickable;
     }
 }
 
-.btn {
-    &.primary {
-        background: #1977f2;
-    }
+.card {
+    background-color: $card;
 }
 
-textarea:focus,
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #1977f2;
-    -webkit-box-shadow: 0 1px 0 0 #1977f2;
-    box-shadow: 0 1px 0 0 #1977f2;
+.row {
+    margin: 0;
 }
 
-/*Needs to be declared here due to level of importance!*/
-// @import './darkMode.scss';
+@import './flex.scss';
+@import './scrollBar.scss';
