@@ -41,7 +41,7 @@ export default function Resume() {
 
 
   return (
-    <animated.a href={resume} style={style}>
+    <animated.a href={resume} target="_blank" style={style}>
       <animated.div
         className="resume"
         onMouseMove={handleOnMouseMove}
