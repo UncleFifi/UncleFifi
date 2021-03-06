@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack')
-const path = require("path");
+const path = require("path")
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = env => {
 
@@ -36,6 +37,17 @@ module.exports = env => {
                     test: /\.(png|jpg|gif|svg)$/,
                     type: 'asset/resource',
                 },
+                {
+                    test: /\.(pdf)$/,
+                    use: [
+                      {
+                        loader: 'file-loader',
+                        options: {
+                          name: '[name].[ext]'
+                        }
+                      }
+                    ]
+                }
             ]
         },
         experiments: {
@@ -55,7 +67,13 @@ module.exports = env => {
             }),
             new webpack.EnvironmentPlugin({
                 SERVER_HOST: SERVER_HOST
-            })
+            }),
+            new CopyWebpackPlugin({
+                patterns: [
+                  { from: './ResumePDF.pdf' },
+                  { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
+                ],
+            }),
         ]
     }
 

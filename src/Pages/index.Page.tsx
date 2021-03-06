@@ -6,12 +6,11 @@ import { AboutMeSection } from './IndexPageSections/AboutMe'
 import { ExperienceSection } from './IndexPageSections/ExperiencePageSection'
 import { TechSection } from './IndexPageSections/TechnologyPageSection'
 import { ContactSection } from './IndexPageSections/ContactPageSection'
+import { ResumeSection } from './IndexPageSections/Resume.Section'
 
 
-const AllSections = ['About','Experience', 'Technology', 'Contact']
+const AllSections = ['Resume', 'About','Experience', 'Technology', 'Contact']
 type SectionMap = {[key: string]: HTMLDivElement}
-
-
 
 
 export const HomePage:FC = ({}) => {
@@ -103,6 +102,11 @@ export const HomePage:FC = ({}) => {
 
 
     return <Navigation sections={AllSections} onNavClick={sectionClicked}>
+        
+        <PageWrapperHOC id="Resume">
+            <ResumeSection/>
+        </PageWrapperHOC>
+
         <PageWrapperHOC id="About">
             <AboutMeSection/>
         </PageWrapperHOC>

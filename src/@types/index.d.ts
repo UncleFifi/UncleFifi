@@ -1,6 +1,10 @@
 type NoProps = {}
 type NoState = void
 
+interface PDF {
+    default: string
+}
+
 // used in both prototypes.ts and also in the /src/**/*.ts
 type groupedData<T> = {[key: string]: T}
 
@@ -11,6 +15,10 @@ interface Window {
 // Allowing png imports to work
 declare module "*.png" {
     const value: string;
+    export default value;
+}
+declare module "*.pdf" {
+    const value: PDF;
     export default value;
 }
 
