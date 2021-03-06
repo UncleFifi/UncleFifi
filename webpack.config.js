@@ -30,7 +30,7 @@ module.exports = env => {
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.scss$/,
+                    test: /\.s?css$/,
                     use: ["style-loader", "css-loader", "sass-loader"]
                 },
                 {
@@ -70,7 +70,7 @@ module.exports = env => {
             }),
             new CopyWebpackPlugin({
                 patterns: [
-                  { from: './ResumePDF.pdf' },
+                  { from: './src/Assets/ResumePDF.pdf' },
                   { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
                 ],
             }),

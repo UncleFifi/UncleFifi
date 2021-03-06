@@ -1,8 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
-// import ResumePDF from './../../Assets/ResumePDF.pdf'
-// onLoadSuccess={onDocumentLoadSuccess}
-// options={options}
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 const options = {
     cMapUrl: 'cmaps/',
     cMapPacked: true,
@@ -21,17 +19,16 @@ export const ResumeSection:FC = () => {
     }
 
     useEffect(() => {
-        debugger
         console.log(pdfjs.version)
     }, 
     [])
-    // http://www.africau.edu/images/default/sample.pdf
-    // https://s3-ap-southeast-1.amazonaws.com/happay-local/HVP/BILL20198261213473719445688HP.pdf
-    // file="./ResumePDF.pdf"
-    return <div>
-        <Document file="http://localhost:3000/ResumePDF.pdf">
-            <Page pageNumber={pageNumber} />
-        </Document>
-        <p>Page {pageNumber} of {numPages}</p>
-    </div>
+
+    function displayError(error: any) {
+        console.error(error)
+    }
+
+
+    return <Document file="./src/Assets/ResumePDF.pdf" options={options} onLoadError={displayError}>
+        <Page pageNumber={pageNumber} />
+    </Document>
 }

@@ -4,5 +4,10 @@
         justify-content: center;
         align-items: center;
     }
+    &.alignItemsCenter {
+        align-items: center;
+    }
+    &.justifyContentCenter {
+        justify-content: center;
+    }
 }
-

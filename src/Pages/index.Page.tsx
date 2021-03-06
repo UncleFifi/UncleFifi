@@ -9,61 +9,13 @@ import { ContactSection } from './IndexPageSections/ContactPageSection'
 import { ResumeSection } from './IndexPageSections/Resume.Section'
 
 
-const AllSections = ['Resume', 'About','Experience', 'Technology', 'Contact']
+const AllSections = ['About','Experience', 'Technology', 'Contact', 'Resume']
 type SectionMap = {[key: string]: HTMLDivElement}
 
 
 export const HomePage:FC = ({}) => {
 
     const Sections:SectionMap = {}
-
-    // should probably live in a config or something...
-    const technologies = [
-		{
-            tech: 'Typescript',
-            order: 0
-        },
-		{
-            tech: 'React',
-            order: 1
-        },
-		{
-            tech: 'Angular',
-            order: 2
-        },
-		{
-            tech: 'NodeJs',
-            order: 3
-        },
-		{
-            tech: 'SQL Server',
-            order: 4
-        },
-		{
-            tech: 'MongoDb',
-            order: 5
-        },
-		{
-            tech: 'Docker',
-            order: 6
-        },
-		{
-            tech: 'Web Components',
-            order: 7
-        },
-		{
-            tech: 'IIS',
-            order: 8
-        },
-		{
-            tech: 'NginX',
-            order: 9
-        },
-		{
-            tech: 'Authentication/OAuth2.0',
-            order: 10
-        },
-    ]
 
     const sectionClicked = (selection: string) => {
         let element: HTMLDivElement = Sections[selection]
@@ -103,9 +55,6 @@ export const HomePage:FC = ({}) => {
 
     return <Navigation sections={AllSections} onNavClick={sectionClicked}>
         
-        <PageWrapperHOC id="Resume">
-            <ResumeSection/>
-        </PageWrapperHOC>
 
         <PageWrapperHOC id="About">
             <AboutMeSection/>
@@ -118,6 +67,9 @@ export const HomePage:FC = ({}) => {
         </PageWrapperHOC>
         <PageWrapperHOC id="Contact">
             <ContactSection/>
+        </PageWrapperHOC>
+        <PageWrapperHOC id="Resume" supressFlex={true} additionalClassName="flex justifyContentCenter">
+            <ResumeSection/>
         </PageWrapperHOC>
     </Navigation>
 }
