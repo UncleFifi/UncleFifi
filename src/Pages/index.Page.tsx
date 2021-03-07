@@ -68,7 +68,7 @@ export const HomePage:FC = ({}) => {
         <PageWrapperHOC id="Contact">
             <ContactSection/>
         </PageWrapperHOC>
-        <PageWrapperHOC id="Resume" supressFlex={true} additionalClassName="flex justifyContentCenter">
+        <PageWrapperHOC id="Resume" supressFlex={true} additionalClassName="flex centered">
             <ResumeSection/>
         </PageWrapperHOC>
     </Navigation>
