@@ -1,12 +1,12 @@
 {
   "name": "state-management",
   "version": "1.0.0",
-  "description": "",
+  "description": "this is my portfolio website",
   "main": "index.js",
   "scripts": {
     "typescript:build": "tsc",
     "dev:build": "webpack --mode development",
-    "prod:build": "webpack --mode development",
+    "prod:build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "start:test": "webpack serve --mode development --env SERVER_HOST=testing123"
   },

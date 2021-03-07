@@ -9,7 +9,7 @@ import { ExperienceSection } from './IndexPageSections/Experience.Section'
 import { TechSection } from './IndexPageSections/Technology.Section'
 import { ContactSection } from './IndexPageSections/Contact.Section'
 // import { ResumeSection } from './IndexPageSections/Resume.Section'
-import ResumeCard from './IndexPageSections/ResumeCard.Section'
+import { ResumeSection } from './IndexPageSections/Resume.Section'
 
 const AllSections = ['About','Experience', 'Technology', 'Contact', 'Resume']
 type SectionMap = {[key: string]: HTMLDivElement}
@@ -69,7 +69,7 @@ export const HomePage:FC = ({}) => {
             <ContactSection/>
         </PageWrapperHOC>
         <PageWrapperHOC id="Resume" supressFlex={true} additionalClassName="flex justifyContentCenter">
-            <ResumeCard/>
+            <ResumeSection/>
         </PageWrapperHOC>
     </Navigation>
 }
