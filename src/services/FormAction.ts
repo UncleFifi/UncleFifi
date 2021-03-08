@@ -10,6 +10,11 @@ class FormActions {
     async test() {
         return Http.get<ITestAPI>("contact")
     }
+
+    async submitForm<T>(formData: T) {
+        return Http.formPost("contact/send", formData)
+    }
+    
 }
 
 export default new FormActions()

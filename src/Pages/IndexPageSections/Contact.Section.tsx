@@ -1,35 +1,53 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
+import FormAction from './../../services/FormAction'
 
 export const ContactSection: FC = () => {
+
+    const [name, setName] = useState('')
+    const [subject, setSubject] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
 
     const submitForm = (e: React.MouseEvent) => 
     {
         e.preventDefault()
-        alert('WIP - Need to make this work')
+        // const formData = new FormData(formRef.current)
+        const formData = {
+            name,
+            email,
+            subject,
+            message
+        }
+        FormAction.submitForm(formData).then((apiResponse) => {
+            console.log(apiResponse)
+        }).catch((error) => {
+            console.log(error)
+        })
+
     }
 
     const renderForm = () => <div className="row">
         <form className="col s12">
             <div className="row">
                 <div className="input-field col s6">
-                    <input id="first_name" type="text" className="validate" />
-                    <label htmlFor="first_name">Name</label>
+                    <input id="name" type="text" className="validate" value={name} onChange={(e) => setName(e.target.value)}/>
+                    <label htmlFor="name">Name</label>
                 </div>
                 <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate" />
-                    <label htmlFor="last_name">Email</label>
+                    <input id="email" type="text" className="validate"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <label htmlFor="email">Email</label>
                 </div>
             </div>
             <div className="row">
                 <div className="input-field col s12">
-                    <input id="subject" type="text" className="validate" />
+                    <input id="subject" type="text" className="validate"  value={subject} onChange={(e) => setSubject(e.target.value)}/>
                     <label htmlFor="subject">Subject</label>
                 </div>
             </div>
 
             <div className="row">
                 <div className="input-field col s12">
-                    <textarea id="Message" className="materialize-textarea"></textarea>
+                    <textarea id="Message" className="materialize-textarea"  value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                     <label htmlFor="Message">Message</label>
                 </div>
             </div>
@@ -38,7 +56,6 @@ export const ContactSection: FC = () => {
             <button onClick={submitForm} className="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i className="material-icons right">send</i>
             </button>
-
         </form>
     </div>
 

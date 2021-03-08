@@ -1,15 +1,19 @@
-import Axios, { AxiosRequestConfig, AxiosPromise } from 'axios'
+import Axios, { AxiosPromise } from 'axios'
 import SettingsService from './Settings'
 
 class Http {
-    private config: AxiosRequestConfig = {}
+    public baseURL: string
     constructor() {
-        this.config.baseURL = SettingsService.baseUrl
+        this.baseURL = SettingsService.baseUrl
     }
 
     get<T>(url: string): AxiosPromise<T> {
-        this.config.method = "GET"
-        return Axios.get<T>(url, this.config)
+        return Axios.get<T>(this.baseURL+url)
+    }
+
+    formPost<T>(url: string, data: any): AxiosPromise<T> {
+        const URL = this.baseURL+"/"+url
+        return Axios.post<T>(URL, data)
     }
 
 }

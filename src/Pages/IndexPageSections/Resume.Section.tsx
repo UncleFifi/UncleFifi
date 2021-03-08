@@ -42,12 +42,7 @@ export const ResumeSection:FC = () => {
 
   return (
     <animated.a href={resume} target="_blank" style={style}>
-      <animated.div
-        className="resume"
-        onMouseMove={handleOnMouseMove}
-        onMouseLeave={handleOnMouseLeave}
-        style={{ transform: props.xys.interpolate(trans as any) }}
-      >
+      <animated.div className="resume" onMouseMove={handleOnMouseMove} onMouseLeave={handleOnMouseLeave} style={{ transform: props.xys.interpolate(trans as any) }}>
         <p className="download-btn">View PDF</p>
       </animated.div>
     </animated.a>

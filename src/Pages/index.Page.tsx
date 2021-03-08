@@ -1,16 +1,12 @@
 import React, { FC, useEffect } from 'react'
 import FormActions from './../services/FormAction'
 import { Navigation } from './../Components/Navigation'
-
 import { PageWrapperHOC } from './IndexPageSections/PageWrapper.HOC'
-
 import { AboutMeSection } from './IndexPageSections/AboutMe.Section'
 import { ExperienceSection } from './IndexPageSections/Experience.Section'
 import { TechSection } from './IndexPageSections/Technology.Section'
 import { ContactSection } from './IndexPageSections/Contact.Section'
-// import { ResumeSection } from './IndexPageSections/Resume.Section'
 import { ResumeSection } from './IndexPageSections/Resume.Section'
-
 const AllSections = ['About','Experience', 'Technology', 'Contact', 'Resume']
 type SectionMap = {[key: string]: HTMLDivElement}
 
@@ -38,10 +34,6 @@ export const HomePage:FC = ({}) => {
         AllSections.forEach(section => {
             Sections[section] = document.getElementById(section) as HTMLDivElement
         })
-
-        FormActions.test().then((API_RESPONSE) => {
-            console.log(API_RESPONSE.data)
-        })
     }
         /*
         const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)')
@@ -54,21 +46,22 @@ export const HomePage:FC = ({}) => {
         ,
     [])
 
+    const commonClassName = "fullHeight row flex alignItemsCenter"
 
     return <Navigation sections={AllSections} onNavClick={sectionClicked}>
-        <PageWrapperHOC id="About">
+        <PageWrapperHOC id="About" className={commonClassName}>
             <AboutMeSection/>
         </PageWrapperHOC>
-        <PageWrapperHOC id="Experience">
+        <PageWrapperHOC id="Experience" className={commonClassName}>
             <ExperienceSection/>
         </PageWrapperHOC>
-        <PageWrapperHOC id="Technology">
+        <PageWrapperHOC id="Technology" className={commonClassName}>
             <TechSection/>
         </PageWrapperHOC>
-        <PageWrapperHOC id="Contact">
+        <PageWrapperHOC id="Contact" className={commonClassName}>
             <ContactSection/>
         </PageWrapperHOC>
-        <PageWrapperHOC id="Resume" supressFlex={true} additionalClassName="flex centered">
+        <PageWrapperHOC id="Resume" supressFlex={true} className="fullHeight flex centered flex centered">
             <ResumeSection/>
         </PageWrapperHOC>
     </Navigation>

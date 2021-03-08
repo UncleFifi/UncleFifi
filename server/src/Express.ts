@@ -1,8 +1,7 @@
 import ExpressLib, { Express } from 'express'
 import ContactRoute from './Routes/Contact'
+const _ExpressApp: Express = ExpressLib()
 
-// Keep it in this file!
-const _ExpressApp: Express = ExpressLib();
 
 function SetApplicationMiddleware(App: Express):Express
 {
