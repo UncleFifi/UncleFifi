@@ -70,7 +70,7 @@ module.exports = env => {
             }),
             new CopyWebpackPlugin({
                 patterns: [
-                  { from: './src/Assets/ResumePDF.pdf' },
+                  { from: './src/Assets/Resume.pdf' },
                   { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
                 ],
             }),
