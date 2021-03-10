@@ -7,4 +7,6 @@ export interface IApiResponse {
 export type ReadOnlySettings = { 
     readonly port: number
     readonly baseUrl: string
+    readonly email: string
+    readonly emailPass: string
  }

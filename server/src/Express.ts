@@ -2,7 +2,6 @@ import ExpressLib, { Express } from 'express'
 import ContactRoute from './Routes/Contact'
 const _ExpressApp: Express = ExpressLib()
 
-
 function SetApplicationMiddleware(App: Express):Express
 {
     console.log('Setting up application middleware')
@@ -12,6 +11,8 @@ function SetApplicationMiddleware(App: Express):Express
     // no more need to bodyParser with this
     App.use(ExpressLib.urlencoded({ extended: true }))// Parse URL-encoded bodies
     App.use(ExpressLib.json())
+
+    App.use(ExpressLib.static('public'))
 
     // MIDDLEWARE USED FOR LOGGING REQUESTS
     // App.use(Morgan('tiny'))
@@ -35,11 +36,7 @@ function SetApplicationMiddleware(App: Express):Express
             .send(allDetails)
     })
     return App
-
 }
-
-
-
 
 
 export function startExpressServer(Port: number, next: Function)
