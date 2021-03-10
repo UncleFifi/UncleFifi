@@ -13,8 +13,6 @@ function SetApplicationMiddleware(App: Express):Express
     App.use(ExpressLib.urlencoded({ extended: true }))// Parse URL-encoded bodies
     App.use(ExpressLib.json())
 
-    App.use(ExpressLib.static('public'))
-
     // MIDDLEWARE USED FOR LOGGING REQUESTS
     // App.use(Morgan('tiny'))
 
@@ -31,15 +29,11 @@ function SetApplicationMiddleware(App: Express):Express
 
     const allDetails = new Array<string>()
     new ContactRoute(allDetails).bindRoute(App)
-
-    /*
     App.get('/', (req: any, res: any) => {
         res
             .status(200)
             .send(allDetails)
     })
-    */
-
     return App
 
 }
