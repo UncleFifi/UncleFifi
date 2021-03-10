@@ -1,5 +1,5 @@
 import { createTransport, Transporter, SendMailOptions, SentMessageInfo } from 'nodemailer'
-import { configuration } from './envConfig'
+import { configuration } from '../envConfig'
 export class Emailer {
     private transporter: Transporter
     private email: string

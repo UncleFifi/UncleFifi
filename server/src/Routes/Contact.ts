@@ -2,7 +2,7 @@ import { RouteBase } from './RouteBase'
 import ExpressLib from 'express'
 import { IContactService, ContactService } from './../Service/Contact.Service'
 import { IContact } from './../models/Contact'
-import { Emailer } from './../Email'
+import { Emailer } from '../Service/Email.Service'
 
 class ContactRoute extends RouteBase {
     private _contactService: IContactService
