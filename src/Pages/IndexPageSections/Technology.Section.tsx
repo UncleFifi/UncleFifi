@@ -2,11 +2,25 @@ import React, { FC } from 'react'
 
 
 export const TechSection: FC = () => {
-    return <div className="col m6 offset-m3 s12">
+
+    const techList = [
+        'AngularJs', 'React', 'Stencil JS',
+        'SQL', 'Mongo Db', 'SASS/CSS',
+        'Redux', 'Javascript', 'Typescript',
+        'NodeJS', 'ASP NET', 'nginx'
+    ]
+
+    const renderCell = (t: string) => <div key={t} className="center">{t}</div>
+
+
+
+    return <div className="col m8 offset-m2 s12">
         <div className="card">
             <div className="card-content white-text">
-                <span className="card-title">Technology</span>
-                <p>Section will be sed to show what languages I am familiar with.</p>
+                <span className="card-title center">Technology</span>
+                <div className="flex flex-static wrap tech">
+                    {techList.map(renderCell)}
+                </div>
             </div>
         </div>
     </div>
