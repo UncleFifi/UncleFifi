@@ -44,6 +44,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@microsoft/signalr": "^5.0.4",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "gsap": "^3.6.0",

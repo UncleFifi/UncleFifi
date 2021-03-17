@@ -1,13 +1,15 @@
 
 {
-    "restartable": "rs",
-    "ignore": [".git", "node_modules/", "dist/", "coverage/"],
-    "watch": ["src/"],
-    "execMap": {
-      "ts": "node -r ts-node/register"
-    },
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "ext": "js,json,ts"
-  }
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/", "dist/", "coverage/"],
+  "watch": ["src/"],
+  "execMap": {
+    "ts": "node -r ts-node/register"
+  },
+  "env": {
+    "NODE_ENV": "development",
+    "EMAIL": "felipedferreira11@gmail.com",
+    "EMAIL_PASS": "Rebecca1988"
+  },
+  "ext": "js,json,ts"
+}

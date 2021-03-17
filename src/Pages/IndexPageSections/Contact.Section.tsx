@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import FormAction from './../../services/FormAction'
+import { HubConnectionBuilder, HubConnection } from "@microsoft/signalr"
 
 export const ContactSection: FC = () => {
 
@@ -7,6 +8,32 @@ export const ContactSection: FC = () => {
     const [subject, setSubject] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+
+    let _connection: HubConnection
+
+    useEffect(() => {
+        // sending it to the url of the other application...
+        _connection = new HubConnectionBuilder()
+            .withUrl("https://localhost:5001/hub")
+            .withAutomaticReconnect()
+            .build()
+
+        _connection.on("messageReceived", (username: string, message: string) => {
+          debugger
+          console.log(`username: ${username} - message: ${message}`)
+        });
+   
+        
+        _connection.start().then(() => {
+        }).catch((err) => {
+        })
+
+       return() => {
+            _connection.stop()
+       }
+      }, 
+      [])
+    
 
     const submitForm = (e: React.MouseEvent) => 
     {
@@ -18,12 +45,23 @@ export const ContactSection: FC = () => {
             subject,
             message
         }
+        _connection.invoke('newMessage','name', 'messageInput.value');
+        /*
+        _connection.send('newMessage', 'user', 'some message').then(() => {
+            debugger
+        }).catch((err) => {
+          debugger
+          console.dir(err)
+        })
+        */
+
+        /*
         FormAction.submitForm(formData).then((apiResponse) => {
             console.log(apiResponse)
         }).catch((error) => {
             console.log(error)
         })
-
+        */
     }
 
     const renderForm = () => <div className="row">
