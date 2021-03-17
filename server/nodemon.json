@@ -8,8 +8,8 @@
   },
   "env": {
     "NODE_ENV": "development",
-    "EMAIL": "felipedferreira11@gmail.com",
-    "EMAIL_PASS": "Rebecca1988"
+    "EMAIL": "",
+    "EMAIL_PASS": ""
   },
   "ext": "js,json,ts"
 }
