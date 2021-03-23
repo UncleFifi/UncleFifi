@@ -1,16 +1,16 @@
-### Hi there 👋
+# installing dep
 
-<!--
-**UncleFifi/Unclefifi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## in root of the project we first need to install all dependencies
+> npm install
 
-Here are some ideas to get you started:
+## we also need to install the dep for the server project
+cd ./server && npm install
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+# Running the UI
+(in ~root dir)
+npm run start
+`will run the project in port 3000`
+
+# Running the Node Server
+(in the ~/server directory)
+npm run dev
